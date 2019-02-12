@@ -32,8 +32,8 @@ def save_snaps(width=0, height=0, name="snapshot", folder=".", raspi=False):
     cap = cv2.VideoCapture(0)
     if width > 0 and height > 0:
         print "Setting the custom Width and Height"
-        cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
-        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+        cap.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, width)
+        cap.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, height)
     try:
         if not os.path.exists(folder):
             os.makedirs(folder)
@@ -47,8 +47,8 @@ def save_snaps(width=0, height=0, name="snapshot", folder=".", raspi=False):
         pass
 
     nSnap   = 0
-    w       = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-    h       = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+    w       = cap.get(cv2.cv.CV_CAP_PROP_FRAME_WIDTH)
+    h       = cap.get(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT)
 
     fileName    = "%s/%s_%d_%d_" %(folder, name, w, h)
     while True:
